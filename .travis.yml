@@ -1,0 +1,21 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+dist: trusty
+
+cache:
+  directories:
+    - $HOME/.m2
+
+deploy:
+  skip_cleanup: true
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_KEY
+  region: "eu-west-2"
+  app: "spotify-explorer"
+  env: "spotify-explorer-environment"
+  bucket_name: "elasticbeanstalk-eu-west-2-522371608912"
+  zip_file: spotify-explorer-app/target/spotify-explorer-app-1.0-FINAL.jar
